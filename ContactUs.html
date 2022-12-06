@@ -1,0 +1,178 @@
+<!-- IIT406 -COMPUTER PROGRAMMING 3 -->
+<!-- Assoc. Prof. Cristina D. De Los Santos 
+	IT Faculty
+	1st Semester, AY 2022-2023 
+	
+	Casiguran, Alexandrea N. IT2A-->
+	 
+  <!DOCTYPE html>
+  <html lang="en"> 
+  <head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+          <title> Contact Us </title> 
+          
+          <link rel="stylesheet" href="ContactUs.css"> <!-- CSS part -->
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  </head> 
+  <body>
+
+    <span id="main">
+      <h1>
+        <img src="1024px-Coat_of_arms_of_the_Philippines.png"  width="80" height="80" align="center"> &nbsp <img src="ph.png"  width="190" height="80" align="center"> &nbsp
+        <div class="time">
+          <span class="hms"></span>
+          <span class="ampm"></span>
+          <br>
+          <span class="date"></span>
+        </div>
+      </h1>
+    </span>
+
+    <div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
+      <a href="/Users/PC/Desktop/codes/HTML/proj/Home.html"><span class="material-symbols-outlined">info</span>About Philippines</span></a>
+      <a href="/Users/PC/Desktop/codes/HTML/proj/Tourist.html"><span class="material-symbols-outlined">local_see</span>Tourist Attractions</span></a>
+      <a href="/Users/PC/Desktop/codes/HTML/proj/Video.html"><span class="material-symbols-outlined">smart_display</span>Video Gallery</span></a>
+      <a href="/Users/PC/Desktop/codes/HTML/proj/LogIn.html"><span class="material-symbols-outlined">login</span>Log-in<span></a>
+      <a href="/Users/PC/Desktop/codes/HTML/proj/ContactUs.html"><span class="material-symbols-outlined">contact_page</span>Contact Us<span></a>
+  
+    </div> 
+
+    <br><br><br><br>
+<div class="border">
+    <h2 align="center" class="title">Contact Us</h2> <!-- start of log in page -->
+    <form action="/Users/PC/Desktop/codes/HTML/proj/about.html" target="_blank" method="post">
+    
+      <div class="container"> <!-- container for log in informations -->
+        <label for="name"><b>Name</b></label>
+        <input type="text" placeholder="Enter Name" name="name"  
+        title="Please Enter Name" required>  <!-- For validation -->
+    
+        <label for="eml"><b>Email</b></label>
+        <input type="email" placeholder="Enter Email" name="eml" 
+        title="Please Enter Email" required> <!-- For validation -->
+
+        <label for="name"><b>Message</b></label>
+        <input type="text" class="mess" placeholder="Your Message / Comment" name="msg"
+        title="Please Enter Email" required> <!-- For validation -->
+            
+        <button class="log" type="submit">Submit</button>
+      </div>
+     
+    </form>
+    </div>
+
+
+    <br><br><br><br>
+    <div id="footer">
+    
+      <div class="botnav">
+        <p><b>NAVIGATION</b></p> <br>
+        <a class="bot" href="/Users/PC/Desktop/codes/HTML/proj/Home.html">About</a>  &nbsp;
+        <a class="bot" href="/Users/PC/Desktop/codes/HTML/proj/Tourist.html">Tourist</a>  &nbsp;
+        <a class="bot" href="/Users/PC/Desktop/codes/HTML/proj/Video.html">Videos</a>  &nbsp;
+        <a class="bot" href="/Users/PC/Desktop/codes/HTML/proj/LogIn.html">LogIn</a>  &nbsp;
+        <a class="bot" href="/Users/PC/Desktop/codes/HTML/proj/ContactUs.html">Contact Us</a>  &nbsp;
+      </div> 
+    
+    
+       <div class="cpyr">Copyright @2022. All Rights Reserved.</div> 
+    
+    
+     
+    
+    
+    </div>
+    
+
+
+    <script>
+/* sidebar */
+var mini = true;
+
+function toggleSidebar() {
+if (mini) {
+  console.log("opening sidebar");
+  document.getElementById("mySidebar").style.width = "300px";
+  document.getElementById("main").style.marginLeft = "300px";
+  this.mini = false;
+} else {
+  console.log("closing sidebar");
+  document.getElementById("mySidebar").style.width = "85px";
+  document.getElementById("main").style.marginLeft = "85px";
+  this.mini = true;
+}
+}
+
+//for time
+function updateTime() {
+var dateInfo = new Date();
+
+/* time */
+var hr,
+  _min = (dateInfo.getMinutes() < 10) ? "0" + dateInfo.getMinutes() : dateInfo.getMinutes(),
+  sec = (dateInfo.getSeconds() < 10) ? "0" + dateInfo.getSeconds() : dateInfo.getSeconds(),
+  ampm = (dateInfo.getHours() >= 12) ? "PM" : "AM";
+
+// replace 0 with 12 at midnight, subtract 12 from hour if 13–23
+if (dateInfo.getHours() == 0) {
+  hr = 12;
+} else if (dateInfo.getHours() > 12) {
+  hr = dateInfo.getHours() - 12;
+} else {
+  hr = dateInfo.getHours();
+}
+
+var currentTime = hr + ":" + _min + ":" + sec;
+
+// print time
+document.getElementsByClassName("hms")[0].innerHTML = currentTime;
+document.getElementsByClassName("ampm")[0].innerHTML = ampm;
+
+/* date */
+var dow = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ],
+  month = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ],
+  day = dateInfo.getDate();
+
+// store date
+var currentDate = dow[dateInfo.getDay()] + ", " + month[dateInfo.getMonth()] + " " + day;
+
+document.getElementsByClassName("date")[0].innerHTML = currentDate;
+};
+
+// print time and date once, then update them every second
+updateTime();
+setInterval(function() {
+updateTime()
+}, 1000);
+
+
+    </script>
+           
+  </body>
+  </html>
+  

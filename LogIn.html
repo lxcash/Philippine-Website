@@ -1,0 +1,385 @@
+<!-- IIT406 -COMPUTER PROGRAMMING 3 -->
+<!-- Assoc. Prof. Cristina D. De Los Santos 
+	IT Faculty
+	1st Semester, AY 2022-2023 
+	
+	Casiguran, Alexandrea N. IT2A-->
+	 
+    <!DOCTYPE html>
+    <html lang="en"> 
+    <head> 
+
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+            <title> Login Form </title> 
+            
+            <link rel="stylesheet" href="LogIn.css"> <!-- CSS part -->
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+            
+
+    </head> 
+    <body>
+      
+      <span id="main">
+        <h1>
+          <img src="1024px-Coat_of_arms_of_the_Philippines.png"  width="80" height="80" align="center"> &nbsp <img src="ph.png"  width="190" height="80" align="center"> &nbsp
+          <div class="time">
+            <span class="hms"></span>
+            <span class="ampm"></span>
+            <br>
+            <span class="date"></span>
+          </div>
+        </h1>
+      </span>
+
+      <div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
+        <a href="/Users/PC/Desktop/codes/HTML/proj/Home.html"><span class="material-symbols-outlined">info</span>About Philippines</span></a>
+        <a href="/Users/PC/Desktop/codes/HTML/proj/Tourist.html"><span class="material-symbols-outlined">local_see</span>Tourist Attractions</span></a>
+        <a href="/Users/PC/Desktop/codes/HTML/proj/Video.html"><span class="material-symbols-outlined">smart_display</span>Video Gallery</span></a>
+        <a href="/Users/PC/Desktop/codes/HTML/proj/LogIn.html"><span class="material-symbols-outlined">login</span>Log-in<span></a>
+        <a href="/Users/PC/Desktop/codes/HTML/proj/ContactUs.html"><span class="material-symbols-outlined">contact_page</span>Contact Us<span></a>
+      </div>
+
+      <br><br><br><br><br><br><br><br><br>
+      <div class="border">
+        <h2 class="title">Login Form</h2> <!-- start of log in page -->
+        <form action="/Users/PC/Desktop/codes/HTML/proj/about.html" method="post">
+          <div class="imgcontainer">
+            <img src="icon.png"  width="10"  height="200"class="avatar">
+          </div>
+        
+          <div class="container"> <!-- container for log in informations -->
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" pattern="IIT406" 
+            title="Wrong Username" required> <!-- For validation -->
+        
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" pattern="LETRAN" 
+            title="Wrong Password" required> <!-- For validation -->
+                
+            <button class="log" type="submit">Login</button>
+            <label>
+              <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+          </div>
+        
+          <div class="container" style="background-color:#f1f1f1"> <!-- cancel button and forgot password link -->
+          <button type="button" class="cancelbtn"> <a class="pass" href="/Users/PC/Desktop/codes/HTML/Sign%20In%20Form.html">Cancel </a></button>
+            <span class="psw"> Forgot <a href="/Users/PC/Desktop/codes/HTML/Forgot%20Pass.html"> password? </a></span>  </div>
+        </form>
+        </div>
+    
+ 
+<br><br><br><br>
+<div id="footer">
+
+  <div class="botnav">
+    <p><b>NAVIGATION</b></p> <br>
+    <a class="bot" href="/Users/PC/Desktop/codes/HTML/proj/Home.html">About</a>  &nbsp;
+    <a class="bot" href="/Users/PC/Desktop/codes/HTML/proj/Tourist.html">Tourist</a>  &nbsp;
+    <a class="bot" href="/Users/PC/Desktop/codes/HTML/proj/Video.html">Videos</a>  &nbsp;
+    <a class="bot" href="/Users/PC/Desktop/codes/HTML/proj/LogIn.html">LogIn</a>  &nbsp;
+    <a class="bot" href="/Users/PC/Desktop/codes/HTML/proj/ContactUs.html">Contact Us</a>  &nbsp;
+  </div> 
+
+
+   <div class="cpyr">Copyright @2022. All Rights Reserved.</div> 
+
+
+  <
+
+</div>
+
+
+<script>
+   /* sidebar */
+   var mini = true;
+  
+  function toggleSidebar() {
+    if (mini) {
+      console.log("opening sidebar");
+      document.getElementById("mySidebar").style.width = "300px";
+      document.getElementById("main").style.marginLeft = "300px";
+      this.mini = false;
+    } else {
+      console.log("closing sidebar");
+      document.getElementById("mySidebar").style.width = "85px";
+      document.getElementById("main").style.marginLeft = "85px";
+      this.mini = true;
+    }
+  }
+  
+   //for time
+   function updateTime() {
+    var dateInfo = new Date();
+  
+    /* time */
+    var hr,
+      _min = (dateInfo.getMinutes() < 10) ? "0" + dateInfo.getMinutes() : dateInfo.getMinutes(),
+      sec = (dateInfo.getSeconds() < 10) ? "0" + dateInfo.getSeconds() : dateInfo.getSeconds(),
+      ampm = (dateInfo.getHours() >= 12) ? "PM" : "AM";
+  
+    // replace 0 with 12 at midnight, subtract 12 from hour if 13–23
+    if (dateInfo.getHours() == 0) {
+      hr = 12;
+    } else if (dateInfo.getHours() > 12) {
+      hr = dateInfo.getHours() - 12;
+    } else {
+      hr = dateInfo.getHours();
+    }
+  
+    var currentTime = hr + ":" + _min + ":" + sec;
+  
+    // print time
+    document.getElementsByClassName("hms")[0].innerHTML = currentTime;
+    document.getElementsByClassName("ampm")[0].innerHTML = ampm;
+  
+    /* date */
+    var dow = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      month = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ],
+      day = dateInfo.getDate();
+  
+    // store date
+    var currentDate = dow[dateInfo.getDay()] + ", " + month[dateInfo.getMonth()] + " " + day;
+  
+    document.getElementsByClassName("date")[0].innerHTML = currentDate;
+  };
+  
+  // print time and date once, then update them every second
+  updateTime();
+  setInterval(function() {
+    updateTime()
+  }, 1000);
+
+  const WANDERER_MOVE_MULTIPLIER = 8;
+const WANDERER_ROTATE_SPEED = 0.03; // very sensitive
+
+const PATH_WIDTH = 5;
+const PATH_HIGHLIGHT_WIDTH = 4;
+
+const LIGHT_GRAPHICS_WIDTH_HEIGHT = 60;
+
+const MAX_BULBS = 300;
+const BULB_COLORS = [
+  '#00d9ff',
+  '#ff0d0d',
+  '#59ff9d',
+  '#b959ff'
+];
+const BULB_LAST_INDEX = BULB_COLORS.length - 1;
+const BULB_FREQUENCY = 200;
+
+let node;
+let pathGraphics;
+let bulbGraphics = [];
+
+let bulbs = [];
+let bulbTick = 0;
+let bulbFlip = false;
+let bulbColorIndex = 0;
+let bulbInterval = null;
+let done = false;
+
+function setup()  {
+  createCanvas(600, 600);
+  background(20);
+  
+  node = new Wanderer();
+  
+  pathGraphics = createGraphics(width, height);
+  pathGraphics.noFill();
+  pathGraphics.strokeCap(PROJECT);
+  
+  BULB_COLORS.forEach((color) => {
+    bulbGraphics.push(getBulbGraphics(color));
+  });
+  
+  bulbInterval = setInterval(() => {
+    if(bulbs.length < MAX_BULBS) {
+       addBulb();
+    } else {
+      clearInterval(bulbInterval);
+      done = true;
+    }
+  }, BULB_FREQUENCY)
+}
+
+function draw() {
+  background(20);
+  
+  if(!done) {
+    node.render();
+  }
+  
+  image(pathGraphics, 0, 0);
+  bulbs.forEach((bulb) => bulb.render());
+}
+
+function addBulb() {
+  const pos = node.getPosition();
+  const direction = node.getDirection();
+  bulbs.push(new Bulb(pos.x, pos.y, direction - (bulbFlip ? PI : 0), bulbGraphics[bulbColorIndex]));
+  bulbFlip = !bulbFlip;
+  bulbColorIndex += 1;
+  
+  if(bulbColorIndex > BULB_LAST_INDEX) {
+    bulbColorIndex = 0;
+  }
+}
+
+function drawBulb(graphics, color) {
+  graphics.fill(color);
+  graphics.noStroke();
+  
+  graphics.beginShape();
+  graphics.vertex(-4, 0);
+  graphics.vertex(-6, -5);
+  graphics.vertex(-7, -10);
+  graphics.vertex(-8, -15);
+  graphics.vertex(0 - 7, -20);
+  graphics.vertex(-4, -25);
+  graphics.vertex(0, -27);
+  graphics.vertex(0, 0);
+  graphics.endShape();
+  graphics.beginShape();
+  graphics.vertex(4, 0);
+  graphics.vertex(6, -5);
+  graphics.vertex(7, -10);
+  graphics.vertex(8, -15);
+  graphics.vertex(7, -20);
+  graphics.vertex(4, -25);
+  graphics.vertex(0, -27);
+  graphics.vertex(0, 0);
+  graphics.endShape();
+  
+  graphics.fill('#378a2e');
+  graphics.rect(0, 0, 10, 5);
+}
+
+function getBulbGraphics(color) {
+  const graphics = createGraphics(LIGHT_GRAPHICS_WIDTH_HEIGHT, LIGHT_GRAPHICS_WIDTH_HEIGHT);
+  graphics.rectMode(CENTER);
+  
+  const startX = graphics.width * 0.5;
+  const startY = graphics.height - 10;
+  
+  graphics.translate(startX, startY - 45);
+  graphics.rotate(PI);
+  graphics.scale(1.2);
+  
+  // draw the bulb once
+  drawBulb(graphics, color);
+  
+  // blur the bulb
+  graphics.filter(BLUR, 8);
+  graphics.scale(0.8);
+  
+  // draw the bulb again to give a glow effect
+  drawBulb(graphics, color);
+  return graphics;
+}
+
+class Wanderer {
+  constructor() {
+    this.pos = { x: random(width), y: random(height) };
+    this.lastPos = { ...this.pos }
+    this.direction = random(TWO_PI);
+    this.noiseValue = 0;
+  }
+  getPosition() {
+    return { x: this.pos.x, y: this.pos.y };
+  }
+  getDirection() {
+    return this.direction;
+  }
+  render() {
+    this.lastPos = { ...this.pos }
+    
+    const xx = cos(this.direction) * WANDERER_MOVE_MULTIPLIER;
+    const yy = sin(this.direction) * WANDERER_MOVE_MULTIPLIER;
+    
+    this.pos.x += xx;
+    this.pos.y += yy;
+    this.direction = noise(this.noiseValue += WANDERER_ROTATE_SPEED) * TWO_PI;
+    
+    let pathBroken = false;
+    if(this.pos.y > height) {
+      pathBroken = true;
+      this.pos.y = 0;
+    } else if(this.pos.y < 0) {
+      pathBroken = true;
+      this.pos.y = height;
+    }
+    
+    if(this.pos.x > width) {
+      pathBroken = true;
+      this.pos.x = 0;
+    } else if(this.pos.x < 0) {
+      pathBroken = true;
+      this.pos.x = width;
+    }
+    
+    if(pathBroken) {
+      this.lastPos = { ...this.pos }
+    }
+    
+    pathGraphics.strokeWeight(PATH_WIDTH);
+    pathGraphics.stroke('#378a2e');
+    pathGraphics.line(this.pos.x, this.pos.y, this.lastPos.x, this.lastPos.y);
+    pathGraphics.strokeWeight(PATH_HIGHLIGHT_WIDTH);
+    pathGraphics.stroke('#42c134');
+    pathGraphics.line(this.pos.x + 1, this.pos.y - 2, this.lastPos.x + 1, this.lastPos.y - 2);
+  }
+}
+
+class Bulb {
+  constructor(x, y, direction, bulbImage) {
+    this.bulbImage = bulbImage;
+    this.pos = { x, y };
+    this.direction = direction;
+    this.halfImageWidth = this.bulbImage.width * 0.5;
+  }
+  render() {
+    push();
+    translate(this.pos.x, this.pos.y);
+    
+    // const dir = atan2(this.pos.y - mouseY, this.pos.x - mouseX);
+    rotate(this.direction);
+    image(this.bulbImage, -this.halfImageWidth, 0);
+    pop();
+  }
+}
+  
+  
+        </script>
+
+
+        
+    </body>
+    </html>
+    
+    
